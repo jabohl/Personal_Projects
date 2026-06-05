@@ -1,181 +1,430 @@
+/* ========================================================================== */
+/* TIC TAC TOE GAME - STYLESHEET */
+/* ========================================================================== */
+
+
+/* ========================================================================== */
+/* CSS CUSTOM PROPERTIES (VARIABLES) */
+/* ========================================================================== */
+/* Define a color scheme that can be reused throughout the stylesheet */
+
 :root {
-    --primary-color: #2c3e50;
-    --secondary-color: #3498db;
-    --accent-color: #e74c3c;
-    --text-color: #ecf0f1;
-    --cell-bg: #34495e;
-    --cell-hover: #2c3e50;
+  /* Primary dark background color */
+  --primary-color: #2c3e50;
+
+  /* Secondary accent color (blue) */
+  --secondary-color: #3498db;
+
+  /* Accent color for important elements (red) */
+  --accent-color: #e74c3c;
+
+  /* Main text color (light gray) */
+  --text-color: #ecf0f1;
+
+  /* Game cell background color */
+  --cell-bg: #34495e;
+
+  /* Game cell hover background color */
+  --cell-hover: #2c3e50;
 }
+
+
+/* ========================================================================== */
+/* GLOBAL STYLES */
+/* ========================================================================== */
+/* Apply styles to all elements */
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
+
+/* ========================================================================== */
+/* BODY & PAGE LAYOUT */
+/* ========================================================================== */
+/* Style the main page container and background */
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+  /* Use a modern sans-serif font stack */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  /* Apply gradient background (diagonal from purple to darker purple) */
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+  /* Make background fill the entire viewport */
+  min-height: 100vh;
+
+  /* Center the game container on the page */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Add padding for mobile devices */
+  padding: 20px;
 }
+
+
+/* ========================================================================== */
+/* CONTAINER */
+/* ========================================================================== */
+/* Main game container styling */
 
 .container {
-    background-color: var(--primary-color);
-    border-radius: 15px;
-    padding: 40px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    max-width: 500px;
-    width: 100%;
+  /* Dark background for the game area */
+  background-color: var(--primary-color);
+
+  /* Rounded corners */
+  border-radius: 15px;
+
+  /* Internal spacing */
+  padding: 40px;
+
+  /* Shadow effect for depth */
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+
+  /* Limit container width */
+  max-width: 500px;
+
+  /* Full width up to max-width */
+  width: 100%;
 }
+
+
+/* ========================================================================== */
+/* HEADING STYLES */
+/* ========================================================================== */
+/* Title styling */
 
 h1 {
-    text-align: center;
-    color: var(--text-color);
-    margin-bottom: 30px;
-    font-size: 2.5em;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  /* Center the title */
+  text-align: center;
+
+  /* Light text color */
+  color: var(--text-color);
+
+  /* Space below the title */
+  margin-bottom: 30px;
+
+  /* Large font size */
+  font-size: 2.5em;
+
+  /* Add subtle text shadow for depth */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
+
+
+/* ========================================================================== */
+/* GAME INFORMATION SECTION */
+/* ========================================================================== */
+/* Message and player indicator area */
 
 .game-info {
-    margin-bottom: 30px;
-    text-align: center;
+  /* Space below this section */
+  margin-bottom: 30px;
+
+  /* Center content */
+  text-align: center;
 }
 
+
+/* Game message display (win/draw announcements) */
 .message {
-    color: var(--accent-color);
-    font-size: 1.5em;
-    font-weight: bold;
-    margin-bottom: 15px;
-    min-height: 30px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  /* Red text for attention */
+  color: var(--accent-color);
+
+  /* Large, bold font */
+  font-size: 1.5em;
+  font-weight: bold;
+
+  /* Space below message */
+  margin-bottom: 15px;
+
+  /* Reserve space even when empty */
+  min-height: 30px;
+
+  /* Add subtle shadow */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
+
+/* Current player indicator */
 .current-player {
-    color: var(--secondary-color);
-    font-size: 1.1em;
-    margin-bottom: 10px;
+  /* Blue text for current player info */
+  color: var(--secondary-color);
+
+  /* Slightly larger font */
+  font-size: 1.1em;
+
+  /* Space below indicator */
+  margin-bottom: 10px;
 }
 
+
+/* Current player symbol (X or O) */
 #playerSymbol {
-    font-weight: bold;
-    color: var(--accent-color);
-    font-size: 1.3em;
+  /* Make symbol bold and prominent */
+  font-weight: bold;
+
+  /* Red color to match accent scheme */
+  color: var(--accent-color);
+
+  /* Make symbol slightly larger */
+  font-size: 1.3em;
 }
+
+
+/* ========================================================================== */
+/* GAME BOARD LAYOUT */
+/* ========================================================================== */
+/* 3x3 grid styling */
 
 .game-board {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    margin-bottom: 30px;
-    background-color: rgba(0, 0, 0, 0.2);
-    padding: 10px;
-    border-radius: 10px;
+  /* Create 3-column grid layout */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  /* Space between cells */
+  gap: 10px;
+
+  /* Space below the board */
+  margin-bottom: 30px;
+
+  /* Semi-transparent background */
+  background-color: rgba(0, 0, 0, 0.2);
+
+  /* Padding around the grid */
+  padding: 10px;
+
+  /* Rounded corners for the board */
+  border-radius: 10px;
 }
+
+
+/* ========================================================================== */
+/* GAME CELLS */
+/* ========================================================================== */
+/* Individual cell styling */
 
 .cell {
-    background-color: var(--cell-bg);
-    border: 2px solid var(--secondary-color);
-    border-radius: 8px;
-    aspect-ratio: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 3em;
-    font-weight: bold;
-    cursor: pointer;
-    color: var(--text-color);
-    transition: all 0.3s ease;
-    user-select: none;
+  /* Cell background color */
+  background-color: var(--cell-bg);
+
+  /* Blue border around cell */
+  border: 2px solid var(--secondary-color);
+
+  /* Rounded corners */
+  border-radius: 8px;
+
+  /* Make cells square (1:1 aspect ratio) */
+  aspect-ratio: 1;
+
+  /* Center the text (X or O) in the cell */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Large font for X and O symbols */
+  font-size: 3em;
+  font-weight: bold;
+
+  /* Show pointer cursor to indicate clickable */
+  cursor: pointer;
+
+  /* Light text color */
+  color: var(--text-color);
+
+  /* Smooth animation for hover effects */
+  transition: all 0.3s ease;
+
+  /* Prevent text selection when clicking */
+  user-select: none;
 }
 
+
+/* Cell hover state (when mouse is over an empty cell) */
 .cell:hover:not(:disabled) {
-    background-color: var(--cell-hover);
-    border-color: var(--accent-color);
-    transform: scale(1.05);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  /* Slightly darker background on hover */
+  background-color: var(--cell-hover);
+
+  /* Red border on hover */
+  border-color: var(--accent-color);
+
+  /* Slight scale up effect */
+  transform: scale(1.05);
+
+  /* Enhanced shadow on hover */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
+
+/* Styling for cells containing X */
 .cell.x {
-    color: var(--secondary-color);
-    font-weight: 900;
+  /* Blue color for X */
+  color: var(--secondary-color);
+
+  /* Extra bold font */
+  font-weight: 900;
 }
 
+
+/* Styling for cells containing O */
 .cell.o {
-    color: var(--accent-color);
-    font-weight: 900;
+  /* Red color for O */
+  color: var(--accent-color);
+
+  /* Extra bold font */
+  font-weight: 900;
 }
+
+
+/* ========================================================================== */
+/* BUTTON STYLING */
+/* ========================================================================== */
+/* Control button container and button styling */
 
 .button-container {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    margin-bottom: 30px;
+  /* Layout for buttons */
+  display: flex;
+  gap: 10px;
+
+  /* Center buttons */
+  justify-content: center;
+
+  /* Space below button area */
+  margin-bottom: 30px;
 }
 
+
+/* Reset button styling */
 .reset-btn {
-    background: linear-gradient(135deg, var(--secondary-color), #2980b9);
-    color: white;
-    border: none;
-    padding: 12px 30px;
-    font-size: 1em;
-    font-weight: bold;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  /* Gradient background (blue gradient) */
+  background: linear-gradient(135deg, var(--secondary-color), #2980b9);
+
+  /* White text */
+  color: white;
+
+  /* No border */
+  border: none;
+
+  /* Button padding */
+  padding: 12px 30px;
+
+  /* Font size and weight */
+  font-size: 1em;
+  font-weight: bold;
+
+  /* Rounded corners */
+  border-radius: 8px;
+
+  /* Show pointer cursor */
+  cursor: pointer;
+
+  /* Smooth transition for hover/active states */
+  transition: all 0.3s ease;
+
+  /* Shadow effect */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
+
+/* Button hover state */
 .reset-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  /* Slight lift effect */
+  transform: translateY(-2px);
+
+  /* Larger shadow when hovering */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
+
+/* Button active/pressed state */
 .reset-btn:active {
-    transform: translateY(0);
+  /* Remove lift effect when pressed */
+  transform: translateY(0);
 }
+
+
+/* ========================================================================== */
+/* STATISTICS SECTION */
+/* ========================================================================== */
+/* Game statistics display styling */
 
 .stats {
-    background-color: rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    color: var(--text-color);
+  /* Semi-transparent dark background */
+  background-color: rgba(0, 0, 0, 0.2);
+
+  /* Internal padding */
+  padding: 20px;
+
+  /* Rounded corners */
+  border-radius: 10px;
+
+  /* Center text */
+  text-align: center;
+
+  /* Light text color */
+  color: var(--text-color);
 }
 
+
+/* Statistics heading */
 .stats h3 {
-    margin-bottom: 15px;
-    color: var(--secondary-color);
+  /* Space below heading */
+  margin-bottom: 15px;
+
+  /* Blue color for heading */
+  color: var(--secondary-color);
 }
 
+
+/* Statistics line items (win counts) */
 .stats div {
-    margin: 8px 0;
-    font-size: 1.1em;
+  /* Vertical spacing between stats */
+  margin: 8px 0;
+
+  /* Slightly larger font */
+  font-size: 1.1em;
 }
 
+
+/* Statistics values (numbers) */
 .stats span {
-    color: var(--accent-color);
-    font-weight: bold;
-    font-size: 1.2em;
+  /* Red color for the numbers */
+  color: var(--accent-color);
+
+  /* Bold numbers */
+  font-weight: bold;
+
+  /* Make numbers slightly larger */
+  font-size: 1.2em;
 }
+
+
+/* ========================================================================== */
+/* RESPONSIVE DESIGN - MOBILE DEVICES */
+/* ========================================================================== */
+/* Adjust styles for screens narrower than 480px */
 
 @media (max-width: 480px) {
-    .container {
-        padding: 20px;
-    }
-    
-    h1 {
-        font-size: 1.8em;
-    }
-    
-    .cell {
-        font-size: 2em;
-    }
-    
-    .message {
-        font-size: 1.2em;
-    }
+  /* Reduce padding on smaller screens */
+  .container {
+    padding: 20px;
+  }
+
+  /* Smaller title on mobile */
+  h1 {
+    font-size: 1.8em;
+  }
+
+  /* Smaller cell symbols on mobile */
+  .cell {
+    font-size: 2em;
+  }
+
+  /* Smaller message text on mobile */
+  .message {
+    font-size: 1.2em;
+  }
 }
