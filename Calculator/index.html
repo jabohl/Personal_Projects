@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="calculator">
+            <div class="calculator-display">
+                <input type="text" id="display" class="display" readonly>
+            </div>
+            
+            <div class="calculator-buttons">
+                <!-- Row 1: Clear and Delete -->
+                <button class="btn btn-function" onclick="clearDisplay()">AC</button>
+                <button class="btn btn-function" onclick="deleteLast()">DEL</button>
+                <button class="btn btn-function" onclick="toggleSign()">+/-</button>
+                <button class="btn btn-operator" onclick="appendOperation('/')">÷</button>
+                
+                <!-- Row 2: Numbers 7, 8, 9 -->
+                <button class="btn btn-number" onclick="appendNum('7')">7</button>
+                <button class="btn btn-number" onclick="appendNum('8')">8</button>
+                <button class="btn btn-number" onclick="appendNum('9')">9</button>
+                <button class="btn btn-operator" onclick="appendOperation('*')">×</button>
+                
+                <!-- Row 3: Numbers 4, 5, 6 -->
+                <button class="btn btn-number" onclick="appendNum('4')">4</button>
+                <button class="btn btn-number" onclick="appendNum('5')">5</button>
+                <button class="btn btn-number" onclick="appendNum('6')">6</button>
+                <button class="btn btn-operator" onclick="appendOperation('-')">-</button>
+                
+                <!-- Row 4: Numbers 1, 2, 3 -->
+                <button class="btn btn-number" onclick="appendNum('1')">1</button>
+                <button class="btn btn-number" onclick="appendNum('2')">2</button>
+                <button class="btn btn-number" onclick="appendNum('3')">3</button>
+                <button class="btn btn-operator" onclick="appendOperation('+')">+</button>
+                
+                <!-- Row 5: 0, Decimal, Equals -->
+                <button class="btn btn-number btn-zero" onclick="appendNum('0')">0</button>
+                <button class="btn btn-number" onclick="appendNum('.')">.</button>
+                <button class="btn btn-equals" onclick="calculate()">=</button>
+            </div>
+            
+            <div class="calculator-info">
+                <small>Simple Arithmetic Calculator</small>
+            </div>
+        </div>
+    </div>
+    
+    <script src="calculator.js"></script>
+</body>
+</html>
