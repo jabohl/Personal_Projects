@@ -1,44 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tic Tac Toe Game</title>
-    <link rel="stylesheet" href="styles.css">
+  <!-- ================================================================== -->
+  <!-- META INFORMATION & ENCODING -->
+  <!-- ================================================================== -->
+
+  <!-- Specify character encoding as UTF-8 -->
+  <meta charset="UTF-8">
+
+  <!-- Viewport settings for responsive design on mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Page title that appears in browser tab -->
+  <title>Tic Tac Toe Game</title>
+
+  <!-- ================================================================== -->
+  <!-- STYLESHEETS -->
+  <!-- ================================================================== -->
+
+  <!-- Link to external CSS stylesheet for game styling -->
+  <link rel="stylesheet" href="styles.css">
+
 </head>
+
 <body>
-    <div class="container">
-        <h1>Tic Tac Toe</h1>
-        
-        <div class="game-info">
-            <div id="gameMessage" class="message"></div>
-            <div id="currentPlayer" class="current-player">Current Player: <span id="playerSymbol">X</span></div>
-        </div>
-        
-        <div class="game-board">
-            <div class="cell" id="cell-1"></div>
-            <div class="cell" id="cell-2"></div>
-            <div class="cell" id="cell-3"></div>
-            <div class="cell" id="cell-4"></div>
-            <div class="cell" id="cell-5"></div>
-            <div class="cell" id="cell-6"></div>
-            <div class="cell" id="cell-7"></div>
-            <div class="cell" id="cell-8"></div>
-            <div class="cell" id="cell-9"></div>
-        </div>
-        
-        <div class="button-container">
-            <button id="resetButton" class="reset-btn">Reset Game</button>
-        </div>
-        
-        <div class="stats">
-            <h3>Stats</h3>
-            <div>Player X Wins: <span id="xWins">0</span></div>
-            <div>Player O Wins: <span id="oWins">0</span></div>
-            <div>Draws: <span id="draws">0</span></div>
-        </div>
+  <!-- ================================================================== -->
+  <!-- MAIN GAME CONTAINER -->
+  <!-- ================================================================== -->
+
+  <div class="container">
+
+    <!-- ============================================================== -->
+    <!-- PAGE TITLE -->
+    <!-- ============================================================== -->
+
+    <h1>Tic Tac Toe</h1>
+
+    <!-- ============================================================== -->
+    <!-- GAME INFORMATION SECTION -->
+    <!-- ============================================================== -->
+
+    <div class="game-info">
+
+      <!-- Display area for game status messages (win/draw announcements) -->
+      <div id="gameMessage" class="message"></div>
+
+      <!-- Display current player's turn -->
+      <div id="currentPlayer" class="current-player">
+        Current Player: <span id="playerSymbol">X</span>
+      </div>
+
     </div>
-    
-    <script src="game.js"></script>
+
+    <!-- ============================================================== -->
+    <!-- GAME BOARD (3x3 GRID) -->
+    <!-- ============================================================== -->
+
+    <div class="game-board">
+
+      <!-- First row of cells -->
+      <div class="cell" id="cell-1"></div>
+      <div class="cell" id="cell-2"></div>
+      <div class="cell" id="cell-3"></div>
+
+      <!-- Second row of cells -->
+      <div class="cell" id="cell-4"></div>
+      <div class="cell" id="cell-5"></div>
+      <div class="cell" id="cell-6"></div>
+
+      <!-- Third row of cells -->
+      <div class="cell" id="cell-7"></div>
+      <div class="cell" id="cell-8"></div>
+      <div class="cell" id="cell-9"></div>
+
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- CONTROL BUTTONS -->
+    <!-- ============================================================== -->
+
+    <div class="button-container">
+
+      <!-- Button to reset the game and start a new one -->
+      <button id="resetButton" class="reset-btn">Reset Game</button>
+
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- GAME STATISTICS SECTION -->
+    <!-- ============================================================== -->
+
+    <div class="stats">
+
+      <!-- Statistics heading -->
+      <h3>Stats</h3>
+
+      <!-- Player X win counter -->
+      <div>Player X Wins: <span id="xWins">0</span></div>
+
+      <!-- Player O win counter -->
+      <div>Player O Wins: <span id="oWins">0</span></div>
+
+      <!-- Draw game counter -->
+      <div>Draws: <span id="draws">0</span></div>
+
+    </div>
+
+  </div>
+
+  <!-- ================================================================== -->
+  <!-- JAVASCRIPT FILES -->
+  <!-- ================================================================== -->
+
+  <!-- Load game logic script -->
+  <script src="game.js"></script>
+
 </body>
+
 </html>
